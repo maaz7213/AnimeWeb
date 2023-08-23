@@ -65,9 +65,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
-
-  console.log(screenWidth)
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -89,13 +86,10 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-         {screenWidth<= drawerWidth ?(<>
             <Typography variant="h6" noWrap component="div" >
             ANIMEMANIA
            </Typography>
-         </>):(<>
-
-         </>)}
+         
         </Toolbar>
       </AppBar>
       <Drawer
@@ -113,13 +107,6 @@ export default function PersistentDrawerLeft() {
         
       >
         <DrawerHeader style={{backgroundColor:'rgba(30, 30, 30, 1)',}} >
-          {screenWidth>= drawerWidth ?(<>
-            <Typography variant="h6" noWrap component="div" style={{color:'white'}} >
-            ANIMEMANIA
-           </Typography>
-         </>):(<>
-         
-         </>)}
           <IconButton onClick={handleDrawerClose} style={{color:'white'}}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
